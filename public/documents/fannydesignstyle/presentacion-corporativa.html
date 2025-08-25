@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Corporativa - Fanny Design Style</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .title {
+            color: #1e3a8a;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin: 10px 0 0 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #f59e0b;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 2px solid #f59e0b;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .vision-box {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .vision-box h3 {
+            color: #f59e0b;
+            margin: 0 0 15px 0;
+            font-size: 22px;
+        }
+        .vision-box p {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .value-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #f59e0b;
+            text-align: center;
+        }
+        .value-title {
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .value-desc {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+        .team-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .founder-info {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #1e3a8a;
+            margin-bottom: 20px;
+        }
+        .founder-name {
+            color: #1e3a8a;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .team-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        .stat-item {
+            background: #1e3a8a;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+        .stat-label {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .service-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #1e3a8a;
+        }
+        .service-title {
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .service-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        .process-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #f59e0b;
+        }
+        .process-step {
+            position: relative;
+            margin-bottom: 25px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1e3a8a;
+            border: 2px solid #f59e0b;
+        }
+        .process-step-title {
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .contact-section {
+            background: #1e3a8a;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .contact-section h3 {
+            color: #f59e0b;
+            margin: 0 0 15px 0;
+        }
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">PRESENTACIÓN CORPORATIVA</h1>
+            <p class="subtitle">Fanny Design Style - Soluciones Creativas</p>
+            <p class="subtitle">Julio 2024</p>
+        </div>
+
+        <div class="vision-box">
+            <h3>MISIÓN</h3>
+            <p>"Transformar ideas en experiencias visuales memorables que conecten marcas con su audiencia, a través del diseño creativo, innovador y estratégico."</p>
+        </div>
+
+        <div class="vision-box">
+            <h3>VISIÓN</h3>
+            <p>"Ser la agencia de diseño líder en Oaxaca, reconocida por nuestra creatividad, profesionalismo y capacidad de generar resultados medibles para nuestros clientes."</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">VALORES</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-title">CREATIVIDAD</div>
+                    <div class="value-desc">Pensamiento innovador, soluciones originales, inspiración constante, exploración de nuevas ideas</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">PROFESIONALISMO</div>
+                    <div class="value-desc">Compromiso con la calidad, entrega puntual, comunicación transparente, ética profesional</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">COLABORACIÓN</div>
+                    <div class="value-desc">Trabajo en equipo, escucha activa, sinergia con clientes, construcción conjunta</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">EXCELENCIA</div>
+                    <div class="value-desc">Atención al detalle, mejora continua, estándares altos, superación de expectativas</div>
+                </div>
+                <div class="value-card">
+                    <div class="value-title">PASIÓN</div>
+                    <div class="value-desc">Amor por el diseño, entusiasmo en cada proyecto, dedicación total, energía positiva</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">NUESTRO EQUIPO</h2>
+            <div class="team-section">
+                <div class="founder-info">
+                    <div class="founder-name">ESTEFANÍA PÉREZ VÁZQUEZ - Fundadora y Directora General</div>
+                    <p><strong>Fecha de nacimiento:</strong> 26 de julio de 1998</p>
+                    <p><strong>Originaria de:</strong> Puebla, México</p>
+                    <p><strong>Residencia actual:</strong> Oaxaca, México</p>
+                    <p><strong>Formación:</strong> Diseño Gráfico y Comunicación Visual</p>
+                    <p><strong>Experiencia:</strong> 8+ años en la industria del diseño</p>
+                </div>
+                
+                <div class="team-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Profesionales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Directora Creativa</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Diseñadores Senior</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Diseñador Web</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Marketing Digital</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">SERVICIOS QUE OFRECEMOS</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-title">DISEÑO GRÁFICO</div>
+                    <ul class="service-list">
+                        <li>Identidad visual completa</li>
+                        <li>Logotipos y branding</li>
+                        <li>Material publicitario</li>
+                        <li>Diseño editorial</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">BRANDING CORPORATIVO</div>
+                    <ul class="service-list">
+                        <li>Estrategia de marca</li>
+                        <li>Manual de identidad</li>
+                        <li>Aplicaciones de marca</li>
+                        <li>Consultoría de marca</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">DISEÑO WEB</div>
+                    <ul class="service-list">
+                        <li>Diseño UI/UX</li>
+                        <li>Prototipado interactivo</li>
+                        <li>Diseño responsivo</li>
+                        <li>Optimización de experiencia</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">MARKETING DIGITAL</div>
+                    <ul class="service-list">
+                        <li>Contenido visual</li>
+                        <li>Redes sociales</li>
+                        <li>Campañas digitales</li>
+                        <li>Email marketing</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">DISEÑO EDITORIAL</div>
+                    <ul class="service-list">
+                        <li>Maquetación de libros</li>
+                        <li>Catálogos y folletos</li>
+                        <li>Publicaciones digitales</li>
+                        <li>Material didáctico</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-title">CONSULTORÍA CREATIVA</div>
+                    <ul class="service-list">
+                        <li>Asesoramiento en diseño</li>
+                        <li>Dirección de arte</li>
+                        <li>Talleres creativos</li>
+                        <li>Mentoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">NUESTRO PROCESO</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="process-step-title">FASE 1: DESCUBRIMIENTO</div>
+                    <p>Reunión inicial con el cliente, análisis de necesidades y objetivos, investigación de mercado y competencia, definición de alcance del proyecto.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-title">FASE 2: ESTRATEGIA</div>
+                    <p>Desarrollo de conceptos creativos, presentación de propuestas, selección de dirección creativa, definición de línea de diseño.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-title">FASE 3: DISEÑO</div>
+                    <p>Creación de elementos visuales, desarrollo de aplicaciones, iteraciones y refinamientos, presentación de avances.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-title">FASE 4: IMPLEMENTACIÓN</div>
+                    <p>Preparación de archivos finales, entrega de elementos completos, capacitación al cliente, seguimiento post-entrega.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h3>CONTACTO</h3>
+            <p>Estamos listos para llevar tus ideas al siguiente nivel</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Email:</strong><br>fannydesignstyle@outlook.com
+                </div>
+                <div class="contact-item">
+                    <strong>Teléfono:</strong><br>9517439204
+                </div>
+                <div class="contact-item">
+                    <strong>Ubicación:</strong><br>Oaxaca, México
+                </div>
+                <div class="contact-item">
+                    <strong>Sitio web:</strong><br>fannydesignstyle.com
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Horario:</strong> Lunes a Viernes 9:00 - 18:00</p>
+            <p><strong>Presupuestos:</strong> Personalizados según necesidades</p>
+            <p>© 2024 Fanny Design Style. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

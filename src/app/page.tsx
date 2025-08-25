@@ -4,12 +4,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, QrCode, MessageSquare, Monitor, ArrowRight, Search } from "lucide-react";
+import { Building2, QrCode, MessageSquare, Monitor, ArrowRight, Search, FileText } from "lucide-react";
 import Image from "next/image";
 import InstitutionsSection from "@/components/InstitutionsSection";
 import QRSection from "@/components/QRSection";
 import ParticipationSection from "@/components/ParticipationSection";
 import AccessibleDesignSection from "@/components/AccessibleDesignSection";
+import Footer from "@/components/Footer";
 
 // Datos de ejemplo
 const sampleInstitutions = [
@@ -252,18 +253,44 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="container mx-auto text-center">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
             Acercando la información pública a la ciudadanía
           </h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Una plataforma innovadora que democratiza el acceso a la información gubernamental 
-            y fomenta la participación activa de los ciudadanos en la gestión pública.
+          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto">
+            Una plataforma innovadora e independiente que democratiza el acceso a la información y 
+            fomenta la participación activa de los ciudadanos en la gestión pública.
           </p>
-          <div className="flex justify-center">
-            <Button size="lg" className="px-8 py-3" onClick={handleExplorePlatform}>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+            <Button size="lg" className="px-8 py-3 text-lg" onClick={handleExplorePlatform}>
               Explorar Plataforma
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
+            <Button size="lg" variant="outline" className="px-8 py-3 text-lg" onClick={() => {
+              router.push("/documentos");
+            }}>
+              Ver Documentos
+              <FileText className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+          
+          {/* Estadísticas rápidas */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mt-12">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">150+</div>
+              <div className="text-sm text-gray-600">Documentos</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">50+</div>
+              <div className="text-sm text-gray-600">Instituciones</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">1000+</div>
+              <div className="text-sm text-gray-600">Consultas</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">24/7</div>
+              <div className="text-sm text-gray-600">Disponibilidad</div>
+            </div>
           </div>
         </div>
       </section>
@@ -302,151 +329,152 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Detailed Sections */}
-      <section className="py-16 px-4 bg-gray-50">
-        <div className="container mx-auto">
-          {activeSection === "perfiles" && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl">
-                  <Building2 className="w-8 h-8 mr-3 text-blue-500" />
-                  Perfiles Institucionales
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Acceso Centralizado</h4>
-                    <p className="text-gray-600 mb-4">
-                      Encuentra toda la información pública de las instituciones gubernamentales 
-                      en un solo lugar. Desde presupuestos hasta informes de actividades, 
-                      todo organizado y fácil de consultar.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("institutions")} className="w-full sm:w-auto">
-                      Explorar Instituciones
-                    </Button>
+      {/* Detailed Features Section */}
+      {activeSection && (
+        <section className="py-16 px-4 bg-gray-50">
+          <div className="container mx-auto">
+            {activeSection === "perfiles" && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-2xl">
+                    <Building2 className="w-8 h-8 mr-3 text-blue-500" />
+                    Perfiles Institucionales
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Información Centralizada</h4>
+                      <p className="text-gray-600 mb-4">
+                        Accede a todos los perfiles institucionales en un solo lugar. Desde presupuestos hasta informes de actividades, 
+                        todo organizado y fácil de consultar.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("institutions")} className="w-full sm:w-auto">
+                        Explorar Instituciones
+                      </Button>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Información Actualizada</h4>
+                      <p className="text-gray-600 mb-4">
+                        Accede a datos en tiempo real sobre el funcionamiento de las instituciones, 
+                        sus responsables, contactos y documentos oficiales actualizados constantemente.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("institutions")} className="w-full sm:w-auto">
+                        Ver Últimas Actualizaciones
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Información Actualizada</h4>
-                    <p className="text-gray-600 mb-4">
-                      Accede a datos en tiempo real sobre el funcionamiento de las instituciones, 
-                      sus responsables, contactos y documentos oficiales actualizados constantemente.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("institutions")} className="w-full sm:w-auto">
-                      Ver Últimas Actualizaciones
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                </CardContent>
+              </Card>
+            )}
 
-          {activeSection === "qr" && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl">
-                  <QrCode className="w-8 h-8 mr-3 text-green-500" />
-                  Códigos QR
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Acceso Rápido</h4>
-                    <p className="text-gray-600 mb-4">
-                      Cada institución tiene su código QR único. Escanéalo con tu dispositivo móvil 
-                      para acceder instantáneamente a su perfil institucional y toda su información pública.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("qr")} className="w-full sm:w-auto">
-                      Escanear Código QR
-                    </Button>
+            {activeSection === "qr" && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-2xl">
+                    <QrCode className="w-8 h-8 mr-3 text-green-500" />
+                    Códigos QR
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Acceso Rápido</h4>
+                      <p className="text-gray-600 mb-4">
+                        Cada institución tiene su código QR único. Escanéalo con tu dispositivo móvil 
+                        para acceder instantáneamente a su perfil institucional y toda su información pública.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("qr")} className="w-full sm:w-auto">
+                        Escanear Código QR
+                      </Button>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Compartir Información</h4>
+                      <p className="text-gray-600 mb-4">
+                        Comparte fácilmente los códigos QR para que otros ciudadanos puedan acceder 
+                        a la información institucional. Promueve la transparencia en tu comunidad.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("qr")} className="w-full sm:w-auto">
+                        Descargar Códigos
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Compartir Información</h4>
-                    <p className="text-gray-600 mb-4">
-                      Comparte fácilmente los códigos QR para que otros ciudadanos puedan acceder 
-                      a la información institucional. Promueve la transparencia en tu comunidad.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("qr")} className="w-full sm:w-auto">
-                      Descargar Códigos
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                </CardContent>
+              </Card>
+            )}
 
-          {activeSection === "participacion" && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl">
-                  <MessageSquare className="w-8 h-8 mr-3 text-purple-500" />
-                  Participación Ciudadana
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Canal Directo</h4>
-                    <p className="text-gray-600 mb-4">
-                      Envía tus consultas, sugerencias y reclamos directamente a las instituciones. 
-                      Recibe respuestas oficiales y sigue el estado de tus solicitudes en tiempo real.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("participation")} className="w-full sm:w-auto">
-                      Enviar Consulta
-                    </Button>
+            {activeSection === "participacion" && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-2xl">
+                    <MessageSquare className="w-8 h-8 mr-3 text-purple-500" />
+                    Participación Ciudadana
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Comunicación Directa</h4>
+                      <p className="text-gray-600 mb-4">
+                        Envía tus consultas, sugerencias y reclamos directamente a las instituciones. 
+                        Recibe respuestas oficiales y sigue el estado de tus solicitudes en tiempo real.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("participation")} className="w-full sm:w-auto">
+                        Enviar Consulta
+                      </Button>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Decisión Conjunta</h4>
+                      <p className="text-gray-600 mb-4">
+                        Participa en consultas públicas, vota en iniciativas y contribuye a la toma 
+                        de decisiones que afectan a tu comunidad. Tu voz importa.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("participation")} className="w-full sm:w-auto">
+                        Ver Consultas Activas
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Decisión Conjunta</h4>
-                    <p className="text-gray-600 mb-4">
-                      Participa en consultas públicas, vota en iniciativas y contribuye a la toma 
-                      de decisiones que afectan a tu comunidad. Tu voz importa.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("participation")} className="w-full sm:w-auto">
-                      Ver Consultas Activas
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+                </CardContent>
+              </Card>
+            )}
 
-          {activeSection === "accesible" && (
-            <Card className="mb-8">
-              <CardHeader>
-                <CardTitle className="flex items-center text-2xl">
-                  <Monitor className="w-8 h-8 mr-3 text-orange-500" />
-                  Diseño Accesible
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Interfaz Intuitiva</h4>
-                    <p className="text-gray-600 mb-4">
-                      Diseño pensado para todos los usuarios, con navegación clara, 
-                      estructura lógica y presentación visual que facilita el acceso a la información.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("accessible")} className="w-full sm:w-auto">
-                      Guía de Uso
-                    </Button>
+            {activeSection === "accesible" && (
+              <Card className="mb-8">
+                <CardHeader>
+                  <CardTitle className="flex items-center text-2xl">
+                    <Monitor className="w-8 h-8 mr-3 text-orange-500" />
+                    Diseño Accesible
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Interfaz Intuitiva</h4>
+                      <p className="text-gray-600 mb-4">
+                        Diseño pensado para todos los usuarios, con navegación clara, 
+                        estructura lógica y presentación visual que facilita el acceso a la información.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("accessible")} className="w-full sm:w-auto">
+                        Guía de Uso
+                      </Button>
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-semibold mb-3">Multiplataforma</h4>
+                      <p className="text-gray-600 mb-4">
+                        Accede desde cualquier dispositivo: computadora, tablet o smartphone. 
+                        La plataforma se adapta perfectamente a diferentes tamaños de pantalla.
+                      </p>
+                      <Button variant="outline" onClick={() => handleShowDetailedComponent("accessible")} className="w-full sm:w-auto">
+                        Probar Versión Móvil
+                      </Button>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-lg font-semibold mb-3">Multiplataforma</h4>
-                    <p className="text-gray-600 mb-4">
-                      Accede desde cualquier dispositivo: computadora, tablet o smartphone. 
-                      La plataforma se adapta perfectamente a diferentes tamaños de pantalla.
-                    </p>
-                    <Button variant="outline" onClick={() => handleShowDetailedComponent("accessible")} className="w-full sm:w-auto">
-                      Probar Versión Móvil
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )}
-        </div>
-      </section>
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Detailed Components Section */}
       {showDetailedComponent && (
@@ -461,14 +489,14 @@ export default function Home() {
             {showDetailedComponent === "institutions" && (
               <InstitutionsSection 
                 institutions={sampleInstitutions} 
-                profiles={sampleProfiles} 
+                profiles={sampleProfiles}
               />
             )}
             
             {showDetailedComponent === "qr" && (
               <QRSection 
                 institutions={sampleInstitutions} 
-                qrCodes={sampleQRCodes} 
+                qrCodes={sampleQRCodes}
               />
             )}
             
@@ -487,49 +515,86 @@ export default function Home() {
         </section>
       )}
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12 px-4">
+      {/* Testimonials Section */}
+      <section className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-4">TRANSPARENCIA CONECTADA</h4>
-              <p className="text-gray-400">
-                Democracia el acceso a la información y fomenta la participación ciudadana.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Enlaces Rápidos</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="/instituciones" className="hover:text-white">Instituciones</a></li>
-                <li><a href="/participacion" className="hover:text-white">Participación</a></li>
-                <li><a href="/documentos" className="hover:text-white">Documentos</a></li>
-                <li><a href="/estadisticas" className="hover:text-white">Estadísticas</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Soporte</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="/ayuda" className="hover:text-white">Ayuda</a></li>
-                <li><a href="/tutoriales" className="hover:text-white">Tutoriales</a></li>
-                <li><a href="/contacto" className="hover:text-white">Contacto</a></li>
-                <li><a href="/faq" className="hover:text-white">FAQ</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="/terminos" className="hover:text-white">Términos de Uso</a></li>
-                <li><a href="/privacidad" className="hover:text-white">Política de Privacidad</a></li>
-                <li><a href="/transparencia" className="hover:text-white">Transparencia</a></li>
-                <li><a href="/accesibilidad" className="hover:text-white">Accesibilidad</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 TRANSPARENCIA CONECTADA. Todos los derechos reservados.</p>
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            Lo que dicen los ciudadanos
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">👤</span>
+                </div>
+                <p className="text-gray-600 mb-4 italic">
+                  "Esta plataforma ha revolucionado cómo accedemos a la información pública. 
+                  Es transparente, fácil de usar y muy completa."
+                </p>
+                <p className="font-semibold text-gray-900">María González</p>
+                <p className="text-sm text-gray-500">Ciudadana</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">👨‍💼</span>
+                </div>
+                <p className="text-gray-600 mb-4 italic">
+                  "Como periodista, esta herramienta me ha facilitado enormemente el acceso 
+                  a documentos oficiales y información de interés público."
+                </p>
+                <p className="font-semibold text-gray-900">Carlos Rodríguez</p>
+                <p className="text-sm text-gray-500">Periodista</p>
+              </CardContent>
+            </Card>
+            
+            <Card className="text-center">
+              <CardContent className="pt-6">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl">👩‍🎓</span>
+                </div>
+                <p className="text-gray-600 mb-4 italic">
+                  "Excelente iniciativa para promover la transparencia y la participación ciudadana. 
+                  Es un ejemplo de cómo la tecnología puede servir a la democracia."
+                </p>
+                <p className="font-semibold text-gray-900">Ana Martínez</p>
+                <p className="text-sm text-gray-500">Investigadora</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="container mx-auto text-center">
+          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            ¿Listo para explorar la plataforma?
+          </h3>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Únete a miles de ciudadanos que ya están utilizando Transparencia Conectada 
+            para acceder a información pública y participar en la gestión democrática.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button size="lg" variant="secondary" className="px-8 py-3 text-lg" onClick={() => {
+              router.push("/documentos");
+            }}>
+              Explorar Documentos
+              <FileText className="w-5 h-5 ml-2" />
+            </Button>
+            <Button size="lg" variant="outline" className="px-8 py-3 text-lg border-white text-white hover:bg-white hover:text-blue-600" onClick={() => {
+              router.push("/participacion");
+            }}>
+              Participar
+              <MessageSquare className="w-5 h-5 ml-2" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 }

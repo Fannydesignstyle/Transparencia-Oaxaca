@@ -1,0 +1,121 @@
+MANUAL DE IDENTIDAD CORPORATIVA - FANNY DESIGN STYLE
+
+==========================================================
+
+EMPRESA: Fanny Design Style
+VERSIÓN: 1.0
+FECHA: Julio 2024
+
+==========================================================
+
+1. LOGOTIPO
+
+1.1. VERSIÓN PRINCIPAL
+   - El logotipo consiste en el nombre "Fanny Design Style" 
+     con tipografía moderna y elegante
+   - Colores principales: Azul marino (#1e3a8a) y Dorado (#f59e0b)
+   - Espaciado entre letras: 0.5px
+   - Peso de fuente: Medium (500)
+
+1.2. VERSIÓN SECUNDARIA
+   - Versión simplificada con iniciales "FDS"
+   - Uso en espacios reducidos
+   - Mantiene la paleta de colores principal
+
+1.3. ZONA DE PROTECCIÓN
+   - Espacio mínimo alrededor del logotipo: 
+     igual a la altura de la letra "F"
+   - Ningún elemento debe invadir esta zona
+
+==========================================================
+
+2. COLORES CORPORATIVOS
+
+2.1. COLORES PRIMARIOS
+   - Azul Marino: #1e3a8a (RGB: 30, 58, 138)
+   - Dorado: #f59e0b (RGB: 245, 158, 11)
+   - Blanco: #ffffff (RGB: 255, 255, 255)
+
+2.2. COLORES SECUNDARIOS
+   - Gris Oscuro: #374151 (RGB: 55, 65, 81)
+   - Gris Claro: #9ca3af (RGB: 156, 163, 175)
+   - Azul Claro: #60a5fa (RGB: 96, 165, 250)
+
+2.3. USO DE COLORES
+   - Azul Marino: Texto principal, fondos, elementos clave
+   - Dorado: Acentos, llamadas a la acción, elementos especiales
+   - Blanco: Fondo principal, texto oscuro
+   - Grises: Texto secundario, fondos alternativos
+
+==========================================================
+
+3. TIPOGRAFÍA
+
+3.1. FUENTE PRINCIPAL
+   - Familia: Inter (Sans-serif)
+   - Pesos: Light (300), Regular (400), Medium (500), Bold (700)
+   - Usos: Títulos, subtítulos, cuerpo de texto
+
+3.2. FUENTE SECUNDARIA
+   - Familia: Playfair Display (Serif)
+   - Pesos: Regular (400), Bold (700)
+   - Usos: Citas, elementos decorativos, headings especiales
+
+3.3. JERARQUÍA TIPOGRÁFICA
+   - Título Principal: Inter Bold, 32px, Azul Marino
+   - Título Secundario: Inter Medium, 24px, Azul Marino
+   - Subtítulo: Inter Regular, 18px, Gris Oscuro
+   - Cuerpo de Texto: Inter Regular, 16px, Gris Oscuro
+   - Notas: Inter Light, 14px, Gris Claro
+
+==========================================================
+
+4. APLICACIONES
+
+4.1. MATERIAL DE OFICINA
+   - Tarjetas de presentación
+   - Papelería corporativa
+   - Sobres y carpetas
+   - Facturas y documentos
+
+4.2. MATERIAL DIGITAL
+   - Sitio web y redes sociales
+   - Firmas de email
+   - Presentaciones corporativas
+   - Plantillas de documentos
+
+4.3. MATERIAL PUBLICITARIO
+   - Banners y vallas publicitarias
+   - Folletos y catálogos
+   - Material promocional
+   - Ropa y merchandising
+
+==========================================================
+
+5. USOS INCORRECTOS
+
+5.1. PROHIBICIONES
+   - No alterar los colores del logotipo
+   - No estirar o deformar el logotipo
+   - No cambiar la tipografía
+   - No usar en fondos de bajo contraste
+   - No añadir efectos o filtros
+
+5.2. RECOMENDACIONES
+   - Mantener siempre la legibilidad
+   - Usar en espacios adecuados
+   - Respetar la zona de protección
+   - Mantener la coherencia visual
+
+==========================================================
+
+CONTACTO:
+
+- Email: fannydesignstyle@outlook.com
+- Teléfono: 9517439204
+- Ubicación: Oaxaca, México
+
+==========================================================
+
+MANUAL DE IDENTIDAD CORPORATIVA - FANNY DESIGN STYLE
+© 2024 Fanny Design Style. Todos los derechos reservados.

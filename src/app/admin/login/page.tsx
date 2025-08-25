@@ -24,11 +24,25 @@ export default function AdminLoginPage() {
 
     // Simulación de autenticación - en un entorno real esto iría a un backend
     setTimeout(() => {
-      // Credenciales de ejemplo (en producción esto debería estar en el backend)
-      if (username === "admin" && password === "admin123") {
+      // Credenciales reales para el panel administrativo
+      const validCredentials = [
+        { username: "admin", password: "Transparencia2024*", role: "admin" },
+        { username: "fanny", password: "DesignStyle2024!", role: "editor" },
+        { username: "operator", password: "Operador2024#", role: "operator" }
+      ];
+
+      const validUser = validCredentials.find(
+        cred => cred.username === username && cred.password === password
+      );
+
+      if (validUser) {
         // Guardar estado de autenticación en localStorage
         localStorage.setItem("isAdminAuthenticated", "true");
-        localStorage.setItem("adminUser", JSON.stringify({ username, role: "admin" }));
+        localStorage.setItem("adminUser", JSON.stringify({ 
+          username: validUser.username, 
+          role: validUser.role,
+          loginTime: new Date().toISOString()
+        }));
         router.push("/admin/dashboard");
       } else {
         setError("Credenciales inválidas. Por favor intente nuevamente.");
@@ -128,9 +142,12 @@ export default function AdminLoginPage() {
         </Card>
 
         <div className="mt-6 text-center text-sm text-gray-500">
-          <p>Credenciales de demostración:</p>
-          <p>Usuario: <span className="font-mono">admin</span></p>
-          <p>Contraseña: <span className="font-mono">admin123</span></p>
+          <p className="font-semibold mb-2">Credenciales de Acceso:</p>
+          <div className="space-y-1">
+            <p><span className="font-medium">Administrador:</span> <span className="font-mono">admin</span> / <span className="font-mono">Transparencia2024*</span></p>
+            <p><span className="font-medium">Editor:</span> <span className="font-mono">fanny</span> / <span className="font-mono">DesignStyle2024!</span></p>
+            <p><span className="font-medium">Operador:</span> <span className="font-mono">operator</span> / <span className="font-mono">Operador2024#</span></p>
+          </div>
         </div>
       </div>
     </div>

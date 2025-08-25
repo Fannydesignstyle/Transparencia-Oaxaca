@@ -16,7 +16,7 @@ interface InstitutionsSectionProps {
 
 export default function InstitutionsSection({ institutions, profiles }: InstitutionsSectionProps) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedType, setSelectedType] = useState("");
+  const [selectedType, setSelectedType] = useState("all");
   const [selectedInstitution, setSelectedInstitution] = useState<Institution | null>(null);
   const [filteredInstitutions, setFilteredInstitutions] = useState<Institution[]>(institutions);
   const [institutionProfiles, setInstitutionProfiles] = useState<InstitutionalProfile[]>([]);
@@ -35,7 +35,7 @@ export default function InstitutionsSection({ institutions, profiles }: Institut
       );
     }
 
-    if (selectedType) {
+    if (selectedType && selectedType !== "all") {
       filtered = filtered.filter(inst => inst.type === selectedType);
     }
 
@@ -108,7 +108,7 @@ export default function InstitutionsSection({ institutions, profiles }: Institut
                 <SelectValue placeholder="Filtrar por tipo" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todos los tipos</SelectItem>
+                <SelectItem value="all">Todos los tipos</SelectItem>
                 {institutionTypes.map((type) => (
                   <SelectItem key={type} value={type}>
                     {type}
@@ -119,7 +119,7 @@ export default function InstitutionsSection({ institutions, profiles }: Institut
           </div>
           <Button variant="outline" onClick={() => {
             setSearchTerm("");
-            setSelectedType("");
+            setSelectedType("all");
             setSelectedInstitution(null);
           }}>
             <Filter className="w-4 h-4 mr-2" />

@@ -16,7 +16,7 @@ interface QRSectionProps {
 
 export default function QRSection({ institutions, qrCodes }: QRSectionProps) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedInstitution, setSelectedInstitution] = useState("");
+  const [selectedInstitution, setSelectedInstitution] = useState("all");
   const [selectedQR, setSelectedQR] = useState<QRCodeType | null>(null);
   const [filteredQRCodes, setFilteredQRCodes] = useState<QRCodeType[]>(qrCodes);
   const [scannedCode, setScannedCode] = useState("");
@@ -36,7 +36,7 @@ export default function QRSection({ institutions, qrCodes }: QRSectionProps) {
       );
     }
 
-    if (selectedInstitution) {
+    if (selectedInstitution && selectedInstitution !== "all") {
       const institution = institutions.find(inst => inst.name === selectedInstitution);
       if (institution) {
         filtered = filtered.filter(qr => qr.institutionId === institution.id);
@@ -132,7 +132,7 @@ export default function QRSection({ institutions, qrCodes }: QRSectionProps) {
                 <SelectValue placeholder="Filtrar por institución" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todas las instituciones</SelectItem>
+                <SelectItem value="all">Todas las instituciones</SelectItem>
                 {institutionNames.map((name) => (
                   <SelectItem key={name} value={name}>
                     {name}
@@ -143,7 +143,7 @@ export default function QRSection({ institutions, qrCodes }: QRSectionProps) {
           </div>
           <Button variant="outline" onClick={() => {
             setSearchTerm("");
-            setSelectedInstitution("");
+            setSelectedInstitution("all");
             setSelectedQR(null);
             setScannedCode("");
           }}>

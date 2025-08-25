@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Trabajos - Fanny Design Style</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .title {
+            color: #1e3a8a;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+            margin: 10px 0 0 0;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #f59e0b;
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 2px solid #f59e0b;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+        .project {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #1e3a8a;
+        }
+        .project-title {
+            color: #1e3a8a;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .project-info-item {
+            background: white;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .project-info-label {
+            font-weight: bold;
+            color: #666;
+        }
+        .project-desc {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .deliverables {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #e0e0e0;
+        }
+        .deliverables-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+        }
+        .deliverables-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .stats {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+        .stat-label {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .process {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .process-step {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #f59e0b;
+        }
+        .process-step-title {
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">CATÁLOGO DE TRABAJOS</h1>
+            <p class="subtitle">Fanny Design Style - Proyectos Destacados</p>
+            <p class="subtitle">Julio 2024</p>
+        </div>
+
+        <div class="stats">
+            <h2>ESTADÍSTICAS DE PROYECTOS</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Proyectos Completados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Clientes Satisfechos</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Servicios Ofrecidos</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">PROYECTOS DESTACADOS</h2>
+            
+            <div class="project">
+                <div class="project-title">1. BRANDING RESTAURANTE "SABORES DE OAXACA"</div>
+                <div class="project-info">
+                    <div class="project-info-item">
+                        <span class="project-info-label">Cliente:</span> Restaurante Sabores de Oaxaca
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Fecha:</span> Enero 2024
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Servicios:</span> Branding completo
+                    </div>
+                </div>
+                <div class="project-desc">
+                    Desarrollo de identidad visual completa para restaurante tradicional oaxaqueño. Incluyó logotipo, paleta de colores inspirada en la cultura oaxaqueña, diseño de menúes y material promocional.
+                </div>
+                <div class="deliverables">
+                    <div class="deliverables-title">Elementos Entregados:</div>
+                    <ul class="deliverables-list">
+                        <li>Logotipo y variaciones</li>
+                        <li>Manual de marca básico</li>
+                        <li>Diseño de menúes</li>
+                        <li>Tarjetas de presentación</li>
+                        <li>Señalización para local</li>
+                        <li>Diseño para redes sociales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">2. DISEÑO WEB AGENCIA DE VIAJES "EXPLORA MÉXICO"</div>
+                <div class="project-info">
+                    <div class="project-info-item">
+                        <span class="project-info-label">Cliente:</span> Agencia de Viajes Explora México
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Fecha:</span> Marzo 2024
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Servicios:</span> Diseño UI/UX
+                    </div>
+                </div>
+                <div class="project-desc">
+                    Rediseño completo de la interfaz de usuario para sitio web de agencia de viajes. Enfoque en experiencia de usuario intuitiva y visualmente atractiva para mostrar destinos turísticos mexicanos.
+                </div>
+                <div class="deliverables">
+                    <div class="deliverables-title">Elementos Entregados:</div>
+                    <ul class="deliverables-list">
+                        <li>Diseño de homepage y páginas interiores</li>
+                        <li>Prototipos interactivos</li>
+                        <li>Diseño responsivo</li>
+                        <li>Guía de estilos</li>
+                        <li>Iconografía personalizada</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">3. DISEÑO EDITORIAL LIBRO "ARTE CONTEMPORÁNEO OAXAQUEÑO"</div>
+                <div class="project-info">
+                    <div class="project-info-item">
+                        <span class="project-info-label">Cliente:</span> Galería de Arte Moderno
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Fecha:</span> Mayo 2024
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Servicios:</span> Diseño editorial
+                    </div>
+                </div>
+                <div class="project-desc">
+                    Maquetación y diseño editorial para libro de arte contemporáneo. Diseño elegante y minimalista que resalta las obras de arte y permite una lectura cómoda del contenido.
+                </div>
+                <div class="deliverables">
+                    <div class="deliverables-title">Elementos Entregados:</div>
+                    <ul class="deliverables-list">
+                        <li>Diseño de portada y contraportada</li>
+                        <li>Maquetación interior</li>
+                        <li>Diagramación de imágenes</li>
+                        <li>Diseño de páginas especiales</li>
+                        <li>Preparación para impresión</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">4. MARKETING DIGITAL TIENDA "MODA URBANA"</div>
+                <div class="project-info">
+                    <div class="project-info-item">
+                        <span class="project-info-label">Cliente:</span> Tienda de Ropa Moda Urbana
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Fecha:</span> Abril 2024
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Servicios:</span> Marketing digital
+                    </div>
+                </div>
+                <div class="project-desc">
+                    Creación de contenido visual para campañas de marketing digital en redes sociales. Incluyó diseño de publicaciones, stories y anuncios publicitarios para Instagram y Facebook.
+                </div>
+                <div class="deliverables">
+                    <div class="deliverables-title">Elementos Entregados:</div>
+                    <ul class="deliverables-list">
+                        <li>Diseño de 30 publicaciones para feed</li>
+                        <li>15 diseños para stories</li>
+                        <li>Anuncios publicitarios</li>
+                        <li>Guía de estilo para redes sociales</li>
+                        <li>Plantillas para contenido futuro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-title">5. IDENTIDAD VISUAL ESTUDIO DE YOGA "SERENIDAD"</div>
+                <div class="project-info">
+                    <div class="project-info-item">
+                        <span class="project-info-label">Cliente:</span> Estudio de Yoga Serenidad
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Fecha:</span> Junio 2024
+                    </div>
+                    <div class="project-info-item">
+                        <span class="project-info-label">Servicios:</span> Branding
+                    </div>
+                </div>
+                <div class="project-desc">
+                    Desarrollo de identidad visual completa para estudio de yoga. Enfoque en transmitir paz, serenidad y conexión con la naturaleza a través del diseño.
+                </div>
+                <div class="deliverables">
+                    <div class="deliverables-title">Elementos Entregados:</div>
+                    <ul class="deliverables-list">
+                        <li>Logotipo y filosofía de marca</li>
+                        <li>Paleta de colores naturales</li>
+                        <li>Selección tipográfica</li>
+                        <li>Diseño de materiales promocionales</li>
+                        <li>Diseño de elementos para el espacio físico</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">NUESTRO PROCESO DE TRABAJO</h2>
+            <div class="process">
+                <div class="process-step">
+                    <div class="process-step-title">FASE 1: DESCUBRIMIENTO</div>
+                    <p>Reunión inicial con el cliente, análisis de necesidades, investigación de mercado y definición de objetivos.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-title">FASE 2: CONCEPTUALIZACIÓN</div>
+                    <p>Brainstorming y moodboards, desarrollo de conceptos, presentación de propuestas y selección de dirección.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-title">FASE 3: DISEÑO</div>
+                    <p>Desarrollo de diseño, iteraciones y refinamientos, presentación de avances y aprobaciones.</p>
+                </div>
+                <div class="process-step">
+                    <div class="process-step-title">FASE 4: IMPLEMENTACIÓN</div>
+                    <p>Preparación de archivos finales, entrega de elementos, capacitación al cliente y seguimiento post-entrega.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>CONTACTO:</strong> fannydesignstyle@outlook.com | 9517439204 | Oaxaca, México</p>
+            <p><strong>SITIO WEB:</strong> https://fannydesignstyle.com</p>
+            <p>© 2024 Fanny Design Style. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

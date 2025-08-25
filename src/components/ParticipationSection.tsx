@@ -20,8 +20,8 @@ interface ParticipationSectionProps {
 export default function ParticipationSection({ institutions, inquiries, consultations }: ParticipationSectionProps) {
   const [activeTab, setActiveTab] = useState("inquiries");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedInstitution, setSelectedInstitution] = useState("");
-  const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedInstitution, setSelectedInstitution] = useState("all");
+  const [selectedStatus, setSelectedStatus] = useState("all");
   const [newInquiry, setNewInquiry] = useState({
     subject: "",
     content: "",
@@ -44,14 +44,14 @@ export default function ParticipationSection({ institutions, inquiries, consulta
       );
     }
 
-    if (selectedInstitution) {
+    if (selectedInstitution && selectedInstitution !== "all") {
       const institution = institutions.find(inst => inst.name === selectedInstitution);
       if (institution) {
         filtered = filtered.filter(inquiry => inquiry.institutionId === institution.id);
       }
     }
 
-    if (selectedStatus) {
+    if (selectedStatus && selectedStatus !== "all") {
       filtered = filtered.filter(inquiry => inquiry.status === selectedStatus);
     }
 
@@ -69,7 +69,7 @@ export default function ParticipationSection({ institutions, inquiries, consulta
       );
     }
 
-    if (selectedInstitution) {
+    if (selectedInstitution && selectedInstitution !== "all") {
       const institution = institutions.find(inst => inst.name === selectedInstitution);
       if (institution) {
         filtered = filtered.filter(consultation => consultation.institutionId === institution.id);
@@ -222,7 +222,7 @@ export default function ParticipationSection({ institutions, inquiries, consulta
                     <SelectValue placeholder="Institución" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todas</SelectItem>
+                    <SelectItem value="all">Todas</SelectItem>
                     {institutionNames.map((name) => (
                       <SelectItem key={name} value={name}>
                         {name}
@@ -237,7 +237,7 @@ export default function ParticipationSection({ institutions, inquiries, consulta
                     <SelectValue placeholder="Estado" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todos</SelectItem>
+                    <SelectItem value="all">Todos</SelectItem>
                     <SelectItem value="Pendiente">Pendiente</SelectItem>
                     <SelectItem value="En Progreso">En Progreso</SelectItem>
                     <SelectItem value="Respondida">Respondida</SelectItem>
@@ -247,8 +247,8 @@ export default function ParticipationSection({ institutions, inquiries, consulta
               </div>
               <Button variant="outline" onClick={() => {
                 setSearchTerm("");
-                setSelectedInstitution("");
-                setSelectedStatus("");
+                setSelectedInstitution("all");
+                setSelectedStatus("all");
               }}>
                 <Filter className="w-4 h-4 mr-2" />
                 Limpiar
@@ -312,7 +312,7 @@ export default function ParticipationSection({ institutions, inquiries, consulta
                     <SelectValue placeholder="Institución" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Todas</SelectItem>
+                    <SelectItem value="all">Todas</SelectItem>
                     {institutionNames.map((name) => (
                       <SelectItem key={name} value={name}>
                         {name}
@@ -323,7 +323,7 @@ export default function ParticipationSection({ institutions, inquiries, consulta
               </div>
               <Button variant="outline" onClick={() => {
                 setSearchTerm("");
-                setSelectedInstitution("");
+                setSelectedInstitution("all");
               }}>
                 <Filter className="w-4 h-4 mr-2" />
                 Limpiar

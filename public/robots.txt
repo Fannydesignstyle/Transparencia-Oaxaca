@@ -1,3 +1,6 @@
+# Robots.txt para Transparencia Conectada
+# Plataforma independiente de transparencia y participación ciudadana
+
 User-agent: Googlebot
 Allow: /
 
@@ -12,3 +15,24 @@ Allow: /
 
 User-agent: *
 Allow: /
+Allow: /documentos/
+Allow: /instituciones/
+Allow: /participacion/
+Allow: /transparencia/
+Allow: /estadisticas/
+Allow: /accesibilidad/
+Allow: /faq/
+Allow: /ayuda/
+Allow: /contacto/
+Allow: /terminos/
+Allow: /privacidad/
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /admin-login/
+
+# Sitemap
+Sitemap: https://transparenciaconectada.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

@@ -119,11 +119,11 @@ export default function AccessibleDesignSection() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center">
-          <Monitor className="w-8 h-8 mr-3 text-orange-500" />
-          Diseño Accesible
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 flex flex-col sm:flex-row items-center">
+          <Monitor className="w-6 h-6 md:w-8 md:h-8 mr-3 text-orange-500 flex-shrink-0" />
+          <span className="text-center sm:text-left">Diseño Accesible</span>
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-600 mb-6 text-center sm:text-left">
           Interfaz clara y fácil de usar, optimizada para todos los dispositivos y usuarios.
           Nuestra plataforma sigue los más altos estándares de accesibilidad digital.
         </p>
@@ -131,16 +131,16 @@ export default function AccessibleDesignSection() {
         {/* Controles de Accesibilidad */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="flex items-center text-lg">
-              <Palette className="w-5 h-5 mr-2 text-blue-500" />
+            <CardTitle className="flex items-center text-base md:text-lg">
+              <Palette className="w-4 h-4 md:w-5 md:h-5 mr-2 text-blue-500" />
               Controles de Accesibilidad
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-sm">
               Personaliza la interfaz según tus necesidades
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">
                   Tamaño del Texto
@@ -205,7 +205,7 @@ export default function AccessibleDesignSection() {
             </div>
 
             <div className="mt-4 pt-4 border-t">
-              <Button variant="outline" onClick={resetSettings}>
+              <Button variant="outline" onClick={resetSettings} className="w-full sm:w-auto">
                 Restablecer Configuración
               </Button>
             </div>
@@ -214,27 +214,27 @@ export default function AccessibleDesignSection() {
 
         {/* Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="features">Características</TabsTrigger>
-            <TabsTrigger value="devices">Dispositivos</TabsTrigger>
-            <TabsTrigger value="standards">Estándares</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 h-auto">
+            <TabsTrigger value="features" className="text-xs sm:text-sm py-2 px-1 sm:px-3">Características</TabsTrigger>
+            <TabsTrigger value="devices" className="text-xs sm:text-sm py-2 px-1 sm:px-3">Dispositivos</TabsTrigger>
+            <TabsTrigger value="standards" className="text-xs sm:text-sm py-2 px-1 sm:px-3">Estándares</TabsTrigger>
           </TabsList>
 
           <TabsContent value="features" className="mt-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {accessibilityFeatures.map((feature, index) => (
                 <Card key={index}>
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
+                  <CardHeader className="pb-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                       <div className="flex items-center gap-3">
                         <span className="text-2xl">{feature.icon}</span>
-                        <CardTitle className="text-lg">{feature.title}</CardTitle>
+                        <CardTitle className="text-base md:text-lg">{feature.title}</CardTitle>
                       </div>
-                      <Badge variant={feature.implemented ? "default" : "secondary"}>
+                      <Badge variant={feature.implemented ? "default" : "secondary"} className="self-start sm:self-auto">
                         {feature.implemented ? (
-                          <CheckCircle className="w-4 h-4 mr-1" />
+                          <CheckCircle className="w-3 h-3 mr-1" />
                         ) : (
-                          <AlertCircle className="w-4 h-4 mr-1" />
+                          <AlertCircle className="w-3 h-3 mr-1" />
                         )}
                         {feature.implemented ? "Activo" : "Pendiente"}
                       </Badge>
@@ -253,26 +253,26 @@ export default function AccessibleDesignSection() {
               {deviceCompatibility.map((device, index) => (
                 <Card key={index}>
                   <CardHeader>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div className="flex items-center gap-3">
-                        <device.icon className="w-8 h-8 text-blue-500" />
+                        <device.icon className="w-6 h-6 md:w-8 md:h-8 text-blue-500 flex-shrink-0" />
                         <div>
-                          <CardTitle className="text-lg">{device.device}</CardTitle>
-                          <CardDescription>
+                          <CardTitle className="text-base md:text-lg">{device.device}</CardTitle>
+                          <CardDescription className="text-sm">
                             Compatibilidad y características disponibles
                           </CardDescription>
                         </div>
                       </div>
-                      <Badge variant={device.supported ? "default" : "secondary"}>
+                      <Badge variant={device.supported ? "default" : "secondary"} className="self-start sm:self-auto">
                         {device.supported ? "Compatible" : "No Compatible"}
                       </Badge>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                       {device.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-center gap-2 p-2 bg-gray-50 rounded">
-                          <CheckCircle className="w-4 h-4 text-green-500" />
+                          <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0" />
                           <span className="text-sm">{feature}</span>
                         </div>
                       ))}
@@ -288,10 +288,10 @@ export default function AccessibleDesignSection() {
               {accessibilityGuidelines.map((guideline, index) => (
                 <Card key={index}>
                   <CardHeader>
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                       <div>
-                        <CardTitle className="text-lg">{guideline.standard}</CardTitle>
-                        <CardDescription>{guideline.description}</CardDescription>
+                        <CardTitle className="text-base md:text-lg">{guideline.standard}</CardTitle>
+                        <CardDescription className="text-sm">{guideline.description}</CardDescription>
                       </div>
                       <div className="text-right">
                         <Badge variant={guideline.status === "Compliant" ? "default" : "secondary"}>
@@ -322,16 +322,16 @@ export default function AccessibleDesignSection() {
         {/* Vista Previa */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle className="flex items-center text-lg">
-              <Info className="w-5 h-5 mr-2 text-blue-500" />
+            <CardTitle className="flex items-center text-base md:text-lg">
+              <Info className="w-4 h-4 md:w-5 md:h-5 mr-2 text-blue-500" />
               Vista Previa de Accesibilidad
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="text-sm">
               Ejemplo de cómo se ve la interfaz con diferentes configuraciones
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="p-6 border rounded-lg" style={{ 
+            <div className="p-4 sm:p-6 border rounded-lg" style={{ 
               fontSize: `${fontSize}px`,
               backgroundColor: darkMode ? '#1f2937' : '#ffffff',
               color: darkMode ? '#f9fafb' : '#111827',
@@ -342,7 +342,7 @@ export default function AccessibleDesignSection() {
                 Este es un ejemplo de cómo el contenido se adapta a tus preferencias de accesibilidad. 
                 Puedes ajustar el tamaño del texto, el contraste y el tema para una mejor experiencia de lectura.
               </p>
-              <div className="flex gap-3">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button size="sm" variant="outline">
                   Botón de Ejemplo
                 </Button>
