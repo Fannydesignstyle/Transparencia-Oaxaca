@@ -1,141 +1,196 @@
-# 🚀 Welcome to Z.ai Code Scaffold
+# Transparencia Conectada
 
-A modern, production-ready web application scaffold powered by cutting-edge technologies, designed to accelerate your development with [Z.ai](https://chat.z.ai)'s AI-powered coding assistance.
+Plataforma digital innovadora e independiente que democratiza el acceso a la información pública y fomenta la participación activa de los ciudadanos en la gestión gubernamental.
 
-## ✨ Technology Stack
+## 🌟 Características Principales
 
-This scaffold provides a robust foundation built with:
+### 🔍 Perfiles Institucionales
+- Acceso centralizado a información de todas las instituciones gubernamentales
+- Documentos actualizados en tiempo real
+- Presupuestos, informes de actividades y datos oficiales
 
-### 🎯 Core Framework
-- **⚡ Next.js 15** - The React framework for production with App Router
-- **📘 TypeScript 5** - Type-safe JavaScript for better developer experience
-- **🎨 Tailwind CSS 4** - Utility-first CSS framework for rapid UI development
+### 📱 Códigos QR
+- Códigos QR únicos para cada institución
+- Acceso móvil instantáneo a información institucional
+- Compartible para promover la transparencia comunitaria
 
-### 🧩 UI Components & Styling
-- **🧩 shadcn/ui** - High-quality, accessible components built on Radix UI
-- **🎯 Lucide React** - Beautiful & consistent icon library
-- **🌈 Framer Motion** - Production-ready motion library for React
-- **🎨 Next Themes** - Perfect dark mode in 2 lines of code
+### 💬 Participación Ciudadana
+- Envío directo de consultas, sugerencias y reclamos
+- Seguimiento en tiempo real del estado de solicitudes
+- Participación en consultas públicas y toma de decisiones
 
-### 📋 Forms & Validation
-- **🎣 React Hook Form** - Performant forms with easy validation
-- **✅ Zod** - TypeScript-first schema validation
+### ♿ Diseño Accesible
+- Interfaz intuitiva y fácil de usar
+- Optimizada para todos los dispositivos
+- Navegación clara y estructura lógica
 
-### 🔄 State Management & Data Fetching
-- **🐻 Zustand** - Simple, scalable state management
-- **🔄 TanStack Query** - Powerful data synchronization for React
-- **🌐 Axios** - Promise-based HTTP client
+## 🚀 Tecnologías Utilizadas
 
-### 🗄️ Database & Backend
-- **🗄️ Prisma** - Next-generation Node.js and TypeScript ORM
-- **🔐 NextAuth.js** - Complete open-source authentication solution
+- **Frontend**: Next.js 15 con TypeScript
+- **Estilos**: Tailwind CSS y shadcn/ui
+- **Base de Datos**: SQLite con Prisma ORM
+- **Autenticación**: NextAuth.js
+- **Estado**: Zustand y TanStack Query
+- **AI**: Z-AI Web Dev SDK para generación de contenido
+- **Comunicación**: Socket.io para tiempo real
 
-### 🎨 Advanced UI Features
-- **📊 TanStack Table** - Headless UI for building tables and datagrids
-- **🖱️ DND Kit** - Modern drag and drop toolkit for React
-- **📊 Recharts** - Redefined chart library built with React and D3
-- **🖼️ Sharp** - High performance image processing
+## 📦 Instalación
 
-### 🌍 Internationalization & Utilities
-- **🌍 Next Intl** - Internationalization library for Next.js
-- **📅 Date-fns** - Modern JavaScript date utility library
-- **🪝 ReactUse** - Collection of essential React hooks for modern development
+### Prerrequisitos
+- Node.js 18+ 
+- npm o yarn
 
-## 🎯 Why This Scaffold?
+### Configuración
 
-- **🏎️ Fast Development** - Pre-configured tooling and best practices
-- **🎨 Beautiful UI** - Complete shadcn/ui component library with advanced interactions
-- **🔒 Type Safety** - Full TypeScript configuration with Zod validation
-- **📱 Responsive** - Mobile-first design principles with smooth animations
-- **🗄️ Database Ready** - Prisma ORM configured for rapid backend development
-- **🔐 Auth Included** - NextAuth.js for secure authentication flows
-- **📊 Data Visualization** - Charts, tables, and drag-and-drop functionality
-- **🌍 i18n Ready** - Multi-language support with Next Intl
-- **🚀 Production Ready** - Optimized build and deployment settings
-- **🤖 AI-Friendly** - Structured codebase perfect for AI assistance
+1. **Clonar el repositorio**
+   ```bash
+   git clone https://github.com/tu-usuario/transparencia-conectada.git
+   cd transparencia-conectada
+   ```
 
-## 🚀 Quick Start
+2. **Instalar dependencias**
+   ```bash
+   npm install
+   ```
 
-```bash
-# Install dependencies
-npm install
+3. **Configurar variables de entorno**
+   ```bash
+   cp .env.example .env
+   ```
+   Editar el archivo `.env` con tus configuraciones:
+   ```env
+   DATABASE_URL="file:./dev.db"
+   NEXTAUTH_SECRET="your-secret-here"
+   NEXTAUTH_URL="http://localhost:3000"
+   ZAI_API_KEY="your-zai-api-key-here"
+   ```
 
-# Start development server
-npm run dev
+4. **Inicializar la base de datos**
+   ```bash
+   npx prisma generate
+   npm run db:push
+   ```
 
-# Build for production
-npm run build
+5. **Iniciar el servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
 
-# Start production server
-npm start
+La aplicación estará disponible en `http://localhost:3000`
+
+## 🔧 Configuración de la API Key
+
+Para usar las funcionalidades de IA (generación de imágenes, chat completions, búsqueda web), necesitas configurar tu API Key de Z-AI Web Dev SDK:
+
+1. Obtén tu API Key de Z-AI Web Dev SDK
+2. Añádela a tu archivo `.env`:
+   ```env
+   ZAI_API_KEY="tu-api-key-aqui"
+   ```
+
+### Uso de la API en el proyecto
+
+El proyecto incluye utilidades en `src/lib/zai.ts` para usar la API de manera segura:
+
+```typescript
+import { generateChatCompletion, generateImage, webSearch } from '@/lib/zai';
+
+// Generar chat completion
+const response = await generateChatCompletion([
+  { role: 'system', content: 'Eres un asistente útil' },
+  { role: 'user', content: 'Hola, ¿cómo estás?' }
+]);
+
+// Generar imagen
+const imageResponse = await generateImage('Un hermoso paisaje');
+
+// Búsqueda web
+const searchResults = await webSearch('Noticias de tecnología');
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see your application running.
-
-## 🤖 Powered by Z.ai
-
-This scaffold is optimized for use with [Z.ai](https://chat.z.ai) - your AI assistant for:
-
-- **💻 Code Generation** - Generate components, pages, and features instantly
-- **🎨 UI Development** - Create beautiful interfaces with AI assistance  
-- **🔧 Bug Fixing** - Identify and resolve issues with intelligent suggestions
-- **📝 Documentation** - Auto-generate comprehensive documentation
-- **🚀 Optimization** - Performance improvements and best practices
-
-Ready to build something amazing? Start chatting with Z.ai at [chat.z.ai](https://chat.z.ai) and experience the future of AI-powered development!
-
-## 📁 Project Structure
+## 🏗️ Estructura del Proyecto
 
 ```
 src/
-├── app/                 # Next.js App Router pages
-├── components/          # Reusable React components
-│   └── ui/             # shadcn/ui components
-├── hooks/              # Custom React hooks
-└── lib/                # Utility functions and configurations
+├── app/                    # App Router de Next.js
+│   ├── admin/             # Panel de administración
+│   ├── documentos/        # Página de documentos
+│   ├── instituciones/     # Página de instituciones
+│   └── tutoriales/        # Página de tutoriales
+├── components/            # Componentes React
+│   ├── ui/               # Componentes UI de shadcn
+│   ├── admin-sidebar.tsx
+│   ├── document-viewer.tsx
+│   └── Footer.tsx
+├── lib/                  # Utilidades y configuración
+│   ├── db.ts            # Cliente de base de datos
+│   ├── socket.ts        # Configuración Socket.io
+│   └── zai.ts           # Utilidades Z-AI SDK
+└── hooks/               # Custom hooks
 ```
 
-## 🎨 Available Features & Components
+## 📊 Funcionalidades Administrativas
 
-This scaffold includes a comprehensive set of modern web development tools:
+### Panel de Administración
+- **Dashboard**: Vista general con estadísticas
+- **Gestión de Documentos**: Subir y organizar documentos
+- **Gestión de Instituciones**: Administrar perfiles institucionales
+- **Consultas Ciudadanas**: Gestionar consultas y respuestas
+- **Códigos QR**: Generar y administrar códigos QR
+- **Estadísticas**: Análisis de uso y participación
+- **Configuración**: Ajustes de la plataforma
 
-### 🧩 UI Components (shadcn/ui)
-- **Layout**: Card, Separator, Aspect Ratio, Resizable Panels
-- **Forms**: Input, Textarea, Select, Checkbox, Radio Group, Switch
-- **Feedback**: Alert, Toast (Sonner), Progress, Skeleton
-- **Navigation**: Breadcrumb, Menubar, Navigation Menu, Pagination
-- **Overlay**: Dialog, Sheet, Popover, Tooltip, Hover Card
-- **Data Display**: Badge, Avatar, Calendar
+### Credenciales de Acceso
+- **Administrador**: `admin` / `Transparencia2024*`
+- **Editor**: `fanny` / `DesignStyle2024!`
+- **Operador**: `operator` / `Operador2024#`
 
-### 📊 Advanced Data Features
-- **Tables**: Powerful data tables with sorting, filtering, pagination (TanStack Table)
-- **Charts**: Beautiful visualizations with Recharts
-- **Forms**: Type-safe forms with React Hook Form + Zod validation
+## 🎨 Diseño y UX
 
-### 🎨 Interactive Features
-- **Animations**: Smooth micro-interactions with Framer Motion
-- **Drag & Drop**: Modern drag-and-drop functionality with DND Kit
-- **Theme Switching**: Built-in dark/light mode support
+- **Diseño Responsivo**: Optimizado para desktop, tablet y móvil
+- **Tema**: Interfaz limpia y profesional con colores azul y blanco
+- **Accesibilidad**: Cumple con estándares de accesibilidad web
+- **Experiencia de Usuario**: Navegación intuitiva y flujo lógico
 
-### 🔐 Backend Integration
-- **Authentication**: Ready-to-use auth flows with NextAuth.js
-- **Database**: Type-safe database operations with Prisma
-- **API Client**: HTTP requests with Axios + TanStack Query
-- **State Management**: Simple and scalable with Zustand
+## 🚀 Despliegue
 
-### 🌍 Production Features
-- **Internationalization**: Multi-language support with Next Intl
-- **Image Optimization**: Automatic image processing with Sharp
-- **Type Safety**: End-to-end TypeScript with Zod validation
-- **Essential Hooks**: 100+ useful React hooks with ReactUse for common patterns
+### Vercel (Recomendado)
+1. Conectar tu repositorio a Vercel
+2. Configurar variables de entorno en Vercel
+3. Desplegar automáticamente
 
-## 🤝 Get Started with Z.ai
+### Otros Proveedores
+El proyecto puede ser desplegado en cualquier plataforma que soporte Next.js:
+- Netlify
+- Railway
+- Digital Ocean
+- AWS
 
-1. **Clone this scaffold** to jumpstart your project
-2. **Visit [chat.z.ai](https://chat.z.ai)** to access your AI coding assistant
-3. **Start building** with intelligent code generation and assistance
-4. **Deploy with confidence** using the production-ready setup
+## 📄 Licencia
+
+Este proyecto es una iniciativa independiente para la transparencia y participación ciudadana. Ver archivo LICENSE para más detalles.
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📞 Contacto
+
+Para consultas o sugerencias:
+- Email: info@transparenciaconectada.org
+- GitHub Issues: [Crear Issue](https://github.com/tu-usuario/transparencia-conectada/issues)
+
+## 🙏 Agradecimientos
+
+- Al equipo de desarrollo por su dedicación
+- A la comunidad por su apoyo y retroalimentación
+- A las instituciones que colaboran con la transparencia
 
 ---
 
-Built with ❤️ for the developer community. Supercharged by [Z.ai](https://chat.z.ai) 🚀
+**Transparencia Conectada** - Democratizando el acceso a la información pública.
