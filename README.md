@@ -1,4 +1,4 @@
-# Transparencia Conectada
+# Transparencia Oaxaca
 
 Plataforma digital innovadora e independiente que democratiza el acceso a la información pública y fomenta la participación activa de los ciudadanos en la gestión gubernamental.
 
@@ -183,7 +183,7 @@ Las contribuciones son bienvenidas. Por favor:
 
 Para consultas o sugerencias:
 - Email: info@transparenciaconectada.org
-- GitHub Issues: [Crear Issue](https://github.com/tu-usuario/transparencia-conectada/issues)
+- GitHub Issues: [Crear Issue](https://github.com/Fannydesignstyle/Transparencia-Oaxaca/issues)
 
 ## 🙏 Agradecimientos
 
@@ -193,4 +193,4 @@ Para consultas o sugerencias:
 
 ---
 
-**Transparencia Conectada** - Democratizando el acceso a la información pública.
+**Transparencia Oaxaca** - Democratizando el acceso a la información pública.
